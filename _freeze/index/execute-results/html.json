@@ -1,7 +1,7 @@
 {
-  "hash": "e44e2a376836da7c29f30e5828422097",
+  "hash": "41e33e7b4d774506233307d3884009fc",
   "result": {
-    "markdown": "---\ntitle: \"水産海洋データ解析演習\"\n---\n\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\n1 + 1\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 2\n```\n:::\n:::\n",
+    "markdown": "---\ntitle: \"水産海洋データ解析演習\"\n---\n\n\nThis is a Quarto website.\n\nTo learn more about Quarto websites visit <https://quarto.org/docs/websites>.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nsessionInfo()\n```\n\n::: {.cell-output .cell-output-stdout}\n```\nR version 4.2.1 (2022-06-23)\nPlatform: x86_64-pc-linux-gnu (64-bit)\nRunning under: Debian GNU/Linux 11 (bullseye)\n\nMatrix products: default\nBLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3\nLAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3\n\nlocale:\n [1] LC_CTYPE=en_US.utf8        LC_NUMERIC=C              \n [3] LC_TIME=ja_JP.UTF-8        LC_COLLATE=en_US.utf8     \n [5] LC_MONETARY=ja_JP.UTF-8    LC_MESSAGES=en_US.utf8    \n [7] LC_PAPER=ja_JP.UTF-8       LC_NAME=C                 \n [9] LC_ADDRESS=C               LC_TELEPHONE=C            \n[11] LC_MEASUREMENT=ja_JP.UTF-8 LC_IDENTIFICATION=C       \n\nattached base packages:\n[1] stats     graphics  grDevices utils     datasets  methods   base     \n\nloaded via a namespace (and not attached):\n [1] htmlwidgets_1.5.4 compiler_4.2.1    magrittr_2.0.3    fastmap_1.1.0    \n [5] cli_3.4.0         tools_4.2.1       htmltools_0.5.3   yaml_2.3.5       \n [9] stringi_1.7.8     rmarkdown_2.14    knitr_1.39        stringr_1.4.0    \n[13] xfun_0.32         digest_0.6.29     jsonlite_1.8.0    rlang_1.0.5      \n[17] evaluate_0.16    \n```\n:::\n:::",
     "supporting": [],
     "filters": [
       "rmarkdown/pagebreak.lua"

@@ -3,22 +3,50 @@ project:
   output-dir: _site
   render: 
     - index.qmd
+    - part01.qmd
+    - part02.qmd
+    - part03.qmd
+    - part04.qmd
+    - part05.qmd
+    - summary-statistics.qmd
+    - ttest.qmd
+    - anova.qmd
+    - anova2.qmd
 
 website:
   title: "水産海洋データ解析演習"
   site-url: https://gnishihara.github.io/rinkai2022/
   repo-url: https://github.com/gnishihara/rinkai2022/
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  sidebar:
+    style: "docked"
+    search: true
+    contents: 
+      - section: "Main"
+        contents:
+        - index.qmd
+      - section: "基本編"
+        contents: 
+        - part01.qmd
+        - part02.qmd
+        - part03.qmd
+        - part04.qmd
+      - section: "作図"
+        contents:
+        - part05.qmd
+      - section: "基礎統計学"
+        contents:
+        - summary-statistics.qmd
+        - ttest.qmd
+        - anova.qmd
+        - anova2.qmd
 
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
+    html-math-method: katex
+    
 
 execute:
   freeze: auto

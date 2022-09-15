@@ -1,0 +1,159 @@
+---
+title: "中心極限定理・大数の法則"
+author: "Greg Nishihara"
+date: "2022/5/15"
+lang: ja
+format: 
+  html:
+    html-math-method: katex
+    self-contained: true
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warnings: false
+library(tidyverse)
+library(flextable)
+```
+
+## 大数の法則
+
+An event occurs with a probability of $P$. For $n$ experiments, the event occurs $r$ times. The law of large numbers states that when $n$ increases, then the ratio $r/n$ approaches $P$.
+
+大まかに説明すると：事象 $x$ が起きる真の確率を $P$ とします。 では、実験を $n$ 回実施したとき、事象 $x$ は $r$ 回起きました。 大数の法則によると、実験の実施回数 $(n)$ を増やせば増やすほど事象 $x$ が起きる比率 $(r/n)$ は $P$ に収束する。
+
+大数の法則についてですが、大数の弱法則 (weak law of large numbers) と大数の強法則 (strong law of large numbers) があります。
+
+### 大数の弱法則
+
+$$
+\overline{x}_n \xrightarrow{P} \mu ~\text{when}~ n \to \infty
+$$
+
+つまり、データ数 $n$ の数が増えれば増えるほど、標本平均 $\overline{x}_n$ は確率的に真の平均値 $\mu$ に収束します。確率的に収束するから、弱法則です。
+
+### 大数の強法則
+
+$$
+\overline{x}_n \xrightarrow{a.s.} \mu ~\text{when}~ n\to\infty
+$$
+
+データ数 $n$ の数が増えれば増えるほど、標本平均 $\overline{x}_n$ はほぼ確実に真の平均値 $\mu$ に収束します。確実に収束するから、強法則です。
+
+大数の法則が存在するから、データを取り続ければ、本当の平均に導くと期待できます。
+
+### 大数の法則をRで調べる
+
+`tibble` のパッケージを冒頭で読み込んでから、`sapply()` 関数と`rbinom()` 関数の組み合わせで、データを発生します。
+
+このとき、Rは疑似乱数を用いて、二項分布の確率分布からデータをほぼランダムに抽出します。
+
+```{r}
+library(tibble)
+p = 0.2    # 真の確率
+n = 1:1000 # データ数
+r = sapply(n, rbinom, size = 1, prob = p) # 事象の回数
+ratio = sapply(r, sum) / n # n, p, r における r の比率
+data = tibble(n, ratio) # データを tibble にまとめる
+```
+
+データの準備ができたら、作図します。
+
+```{r}
+#| fig.cap: 実験の試行回数が増えれば増えるほど、$r$ が起きる比率は真の確率 $p$ に収束しています。
+ggplot(data) + 
+  geom_line(aes(x = n, y = ratio)) + 
+  geom_hline(yintercept = p, color = "orangered") +
+  scale_x_continuous("試行回数 (n)") +
+  scale_y_continuous("比率 (r/n)")
+```
+
+平均値の場合は次の通りです。
+
+```{r}
+mu = 20    # 真の平均値
+s = 1      # 真の標準偏差
+n = 1:1000 # データ数
+x = sapply(n, rnorm, mean = mu, sd = s) # 事象の回数
+xbar = sapply(x, mean) # n, p, r における r の比率
+data = tibble(n, xbar) # データを tibble にまとめる
+```
+
+```{r}
+#| fig.cap: データの数が増えれば増えるほど、標本平均は真の平均値 μ に収束しています。
+ggplot(data) + 
+  geom_line(aes(x = n, y = xbar)) + 
+  geom_hline(yintercept = mu, color = "orangered") +
+  scale_x_continuous("データ数 (n)") +
+  scale_y_continuous("標本平均")
+```
+
+## 中心極限定理
+
+The random variables, $x_1, x_2, \cdots, x_n$ are independent and identically distributed (i.i.d) with a mean of $\mu$ and a variance of $\sigma^2$. Therefore, the sample mean is $\overline{x}_n = \frac{1}{n}\sum_{n = 1}^N x_n$.
+
+The law of large numbers ensures that $\overline{x}_n \to \mu$ as $n \to\infty$. 
+Then, the *central limit theorem* states that the difference between the sample mean and the true mean follows a standard normal distribution.
+
+
+$$
+\lim_{n \to \infty} \sqrt{n}\left(\frac{\overline{x}_n - \mu}{\sigma}\right) \to N(0,\sigma^2)
+$$
+
+大数の法則は、データをたくさん集めれば、標本平均が真の平均値に収束すると教えてくれました。
+中心極限定理は、標本平均と真の平均値の間に起きる差についての定理です。
+その差は標準正規分布に従う、と中心極限定理が示しています。
+
+これも、疑似データを発生させて見るのがわかりやすいです。
+
+## 中心極限定理のRコード
+
+褐藻類ノコギリモクはホンダワラ属の海藻です。
+5 個体のを採取して、体長を図ります。
+体長は 30 から 50 mm でたと仮定します。
+さらに、体長は一様分布に従うとしら、真の平均値は $30 + 50 = 40$ mm です。
+では、5個体のノコギリモクの平均値を求めますが、
+この調査実験は 5, 10, 100, 200, 500, 10000 回実施します。
+
+```{r}
+nokogirimoku = function(n) {
+  n_samples = 5
+  x = replicate(n, runif(n_samples, 30, 50))
+  m = apply(x, 2, mean)
+  tibble(xbar = m)
+}
+n = c(5, 10, 100, 200, 500, 10000)
+
+data = tibble(n) |> 
+  mutate(x = map(n, nokogirimoku)) |> 
+  unnest(x) |> 
+  mutate(delta = (xbar - 40)) |> 
+  mutate(n = factor(n))
+```
+
+```{r}
+#| fig.cap: 実験回数を 5, 10, 100, 200, 500, 10000 にしたとき、5個体のノコギリモクから求めた標本平均と真の平均値の差は正規分布に収束しています。
+ggplot(data) + 
+  geom_histogram(aes(x = delta, y = ..density..)) + 
+  scale_x_continuous("(x - μ)") +
+  scale_y_continuous("Density") +
+  facet_wrap(vars(n))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
