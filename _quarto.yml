@@ -6,6 +6,8 @@ project:
 
 website:
   title: "水産海洋データ解析演習"
+  site-url: https://gnishihara.github.io/rinkai2022/
+  repo-url: https://github.com/gnishihara/rinkai2022/
   navbar:
     left:
       - href: index.qmd
@@ -17,3 +19,7 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
+
+execute:
+  freeze: auto
+  
