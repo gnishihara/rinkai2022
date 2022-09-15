@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>水産海洋データ解析演習</title>
+<title>水産海洋データ解析演習 - R 関数の基本</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -132,7 +132,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">水産海洋データ解析演習</h1>
+      <h1 class="quarto-secondary-nav-title">R 関数の基本</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -165,7 +165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">水産海洋データ解析演習</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">水産海洋データ解析演習</a>
   </div>
 </li>
       </ul>
@@ -185,7 +185,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part02.html" class="sidebar-item-text sidebar-link">R 関数の基本</a>
+  <a href="./part02.html" class="sidebar-item-text sidebar-link active">R 関数の基本</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -250,14 +250,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#r-関数の基本" id="toc-r-関数の基本" class="nav-link active" data-scroll-target="#r-関数の基本">R 関数の基本</a>
+  <ul class="collapse">
+  <li><a href="#関数の作り方" id="toc-関数の作り方" class="nav-link" data-scroll-target="#関数の作り方">関数の作り方</a></li>
+  <li><a href="#関数のスコープ-scope１" id="toc-関数のスコープ-scope１" class="nav-link" data-scroll-target="#関数のスコープ-scope１">関数のスコープ (scope)（１）</a></li>
+  <li><a href="#関数のスコープ-scope２" id="toc-関数のスコープ-scope２" class="nav-link" data-scroll-target="#関数のスコープ-scope２">関数のスコープ (scope)（２）</a></li>
+  <li><a href="#諸略した関数の書き方と無名関数-anonymous-function" id="toc-諸略した関数の書き方と無名関数-anonymous-function" class="nav-link" data-scroll-target="#諸略した関数の書き方と無名関数-anonymous-function">諸略した関数の書き方と無名関数 (anonymous function)</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">水産海洋データ解析演習</h1>
+<h1 class="title d-none d-lg-block">R 関数の基本</h1>
 </div>
 
 
@@ -271,40 +283,111 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
+<section id="r-関数の基本" class="level1">
+<h1>R 関数の基本</h1>
+<p>関数をつくることにより、<svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg> での作業がとても楽になります。 コードを繰り返して使うなら関数をつくりましょう。</p>
+<section id="関数の作り方" class="level2">
+<h2 class="anchored" data-anchor-id="関数の作り方">関数の作り方</h2>
+<p><strong>R の関数に 2 つのパーツがあります。</strong></p>
+<ul>
+<li><strong>Arguments</strong>: 引数</li>
+<li><strong>Code block</strong>: 関数のコードは <code>{}</code> の間に納めます。</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>hello <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.character</span>(x)) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Please provide a character string."</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sprintf</span>(<span class="st">"Hello %s!"</span>, x)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">hello</span>(<span class="dv">214</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in hello(214): Please provide a character string.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hello</span>(<span class="st">"Yukio"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.2.1 (2022-06-23)
-Platform: x86_64-pc-linux-gnu (64-bit)
-Running under: Debian GNU/Linux 11 (bullseye)
+<pre><code>[1] "Hello Yukio!"</code></pre>
+</div>
+</div>
+</section>
+<section id="関数のスコープ-scope１" class="level2">
+<h2 class="anchored" data-anchor-id="関数のスコープ-scope１">関数のスコープ (scope)（１）</h2>
+<p>関数の中に作ったものは、関数の中にしか存在しない。</p>
+<div class="cell">
 
-Matrix products: default
-BLAS:   /usr/lib/x86_64-linux-gnu/atlas/libblas.so.3.10.3
-LAPACK: /usr/lib/x86_64-linux-gnu/atlas/liblapack.so.3.10.3
-
-locale:
- [1] LC_CTYPE=en_US.utf8        LC_NUMERIC=C              
- [3] LC_TIME=ja_JP.UTF-8        LC_COLLATE=en_US.utf8     
- [5] LC_MONETARY=ja_JP.UTF-8    LC_MESSAGES=en_US.utf8    
- [7] LC_PAPER=ja_JP.UTF-8       LC_NAME=C                 
- [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-[11] LC_MEASUREMENT=ja_JP.UTF-8 LC_IDENTIFICATION=C       
-
-attached base packages:
-[1] stats     graphics  grDevices utils     datasets  methods   base     
-
-loaded via a namespace (and not attached):
- [1] htmlwidgets_1.5.4 compiler_4.2.1    magrittr_2.0.3    fastmap_1.1.0    
- [5] cli_3.4.0         tools_4.2.1       htmltools_0.5.3   yaml_2.3.5       
- [9] stringi_1.7.8     rmarkdown_2.14    knitr_1.39        stringr_1.4.0    
-[13] xfun_0.32         digest_0.6.29     jsonlite_1.8.0    rlang_1.0.5      
-[17] evaluate_0.16    </code></pre>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sumofsquare <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  ss <span class="ot">=</span> (x <span class="sc">-</span> <span class="fu">mean</span>(x))<span class="sc">^</span><span class="dv">2</span> <span class="co"># 関数の外から見れない</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  ssq <span class="ot">=</span> <span class="fu">sum</span>(ss) <span class="co"># 関数の外から見れない</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  ssq <span class="co"># 関数の外に返す</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  7  6 10  7  4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>value <span class="ot">=</span> <span class="fu">sumofsquare</span>(data)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18.8</code></pre>
+</div>
+</div>
+</section>
+<section id="関数のスコープ-scope２" class="level2">
+<h2 class="anchored" data-anchor-id="関数のスコープ-scope２">関数のスコープ (scope)（２）</h2>
+<p>ところが、関数は外の環境に存在するものは見れます。 このように関数を作ると、バグを起こしやすいので、注意。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sumofsquare <span class="ot">=</span> <span class="cf">function</span>(x) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  ss <span class="ot">=</span> (s <span class="sc">-</span> <span class="fu">mean</span>(s))<span class="sc">^</span><span class="dv">2</span> <span class="co"># s は関数の外にあるが、関数の引数ではない</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  ssq <span class="ot">=</span> <span class="fu">sum</span>(ss) <span class="co"># 関数の外から見れない</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  ssq <span class="co"># 関数の外に返す</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">100</span><span class="sc">:</span><span class="dv">1000</span>, <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 169 291 862 713 721</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5 7 9 7 3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>value <span class="ot">=</span> <span class="fu">sumofsquare</span>(data)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>value　<span class="co"># これは s の平方和です。</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 365388.8</code></pre>
+</div>
+</div>
+</section>
+<section id="諸略した関数の書き方と無名関数-anonymous-function" class="level2">
+<h2 class="anchored" data-anchor-id="諸略した関数の書き方と無名関数-anonymous-function">諸略した関数の書き方と無名関数 (anonymous function)</h2>
+<p>関数は次のようにもかけます。 <code>\(x){...}</code> はラムダ式 (lambda expression) とも呼ばれています。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>add_one <span class="ot">=</span> \(x) { x <span class="sc">+</span> <span class="dv">1</span>}</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">add_one</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<p>無名関数をつくるときに便利な書き方です。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># どちれも無名関数ですが、２つ目の関数がはラムダ式です。</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(z, <span class="at">FUN =</span> <span class="cf">function</span>(s){s<span class="sc">^</span><span class="dv">2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  4  9 16 25</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(z, <span class="at">FUN =</span> \(s){s<span class="sc">^</span><span class="dv">2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1  4  9 16 25</code></pre>
 </div>
 </div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

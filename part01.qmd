@@ -1,0 +1,36 @@
+---
+title: "R の基本操作"
+---
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| include: false
+
+library(tidyverse)
+library(magick)
+library(fontawesome)
+```
+
+
+## この資料・実習について
+
+* `r fa(name = "r-project")` と RStudio はインストール済み
+* `r fa(name = "r-project")`における単純計算方法はできる
+
+* オレンジ色の文字はクリックできるリンクです。たとえば、下にある Fira Code についての文書はクリックできます。
+* [Fira Code プログラミング用等幅フォントを使っています。](https://github.com/tonsky/FiraCode)
+* このフォントにより、演算子は見やすくなります
+
+**たとえば**
+
+* `<-` は `<` と `-` の合字 (リガチャー, ligature) です `(ALT + -)`
+* `|>` は `|` と `>` の合字です `(CTRL + SHIFT + M)`
+* `<=` は `<` と `=` の合字です
+* `!=` は `!` と `=` の合字です
+
+**この資料は `r version$version.string` 環境で作りました。使用したパッケージは `xaringan` と `xaringanthemer` です。**
+
+
