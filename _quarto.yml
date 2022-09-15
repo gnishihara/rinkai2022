@@ -1,0 +1,19 @@
+project:
+  type: website
+  output-dir: _site
+  render: 
+    - index.qmd
+
+website:
+  title: "水産海洋データ解析演習"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
