@@ -6,6 +6,7 @@ format:
     html-math-method: katex
 reference-location: margin
 citation-location: margin
+bibliography: references.bib
 ---
 
 ```{r}
@@ -63,7 +64,7 @@ dset = tibble(g = c("A", "B", "C"), data = list(siteA, siteB, siteC)) |>
 #| echo: false
 #| fig-cap: "The width of the rope is 6 mm, so the juvenile is about 20 mm in width."
 #| label: juvenile-sargassum-figure
-folder = rprojroot::find_rstudio_root_file("images")
+folder = rprojroot::find_rstudio_root_file("_images")
 file = dir(folder, full = TRUE) |> str_subset("juvenile.jpg")
 img = image_read(file) 
 img = img |> image_crop("1500x1500+1700+750") |> 
@@ -502,8 +503,6 @@ ggplot(Z) +
 ```
 
 
-
-
 ## 一元配置分散分析表の仮定
 
 分散分析するときに注意する仮定
@@ -531,18 +530,11 @@ dset = dset |> rename(site = g, obs = data)
 dset = read_csv("thedata.csv")
 ```
 
-データをグループ化したあと、最初の２行を表示する。
+データをグループ化したあと、最初の 2 行を表示する。
 
 ```{r}
 #| echo: true
 dset |> group_by(site) |> slice(1:2)
-```
-
-分散分析をする前に行うこと。
-
-```{r}
-# Do this before lm().
-contrasts(dset$site) = contr.sum 
 ```
 
 帰無仮説を当てはめる。
@@ -632,7 +624,6 @@ summary(aovout)
 library(emmeans) # 多重比較用パッケージ
 library(nlme)    # gls() 関数はこのパッケージにある
 ```
-
 
 ## 繰り返しウェルチの t 検定
 

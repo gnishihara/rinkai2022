@@ -12,9 +12,13 @@ project:
     - ttest.qmd
     - anova.qmd
     - anova2.qmd
+    - glm.qmd
+    - nonlinear.qmd
+    - maps.qmd
+    - windfetch.qmd
 
 website:
-  title: "水産海洋データ解析演習"
+  title: "研究室と講義の R コード"
   site-url: https://gnishihara.github.io/rinkai2022/
   repo-url: https://github.com/gnishihara/rinkai2022/
   sidebar:
@@ -39,6 +43,12 @@ website:
         - ttest.qmd
         - anova.qmd
         - anova2.qmd
+        - glm.qmd
+        - nonlinear.qmd
+      - section: "その他"
+        contents:
+        - maps.qmd
+        - windfetch.qmd
 
 format:
   html:
@@ -46,7 +56,6 @@ format:
     css: styles.css
     toc: true
     html-math-method: katex
-    
 
 execute:
   freeze: auto

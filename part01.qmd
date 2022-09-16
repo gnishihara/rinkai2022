@@ -2,7 +2,6 @@
 title: "R の基本操作"
 ---
 
-
 ```{r}
 #| echo: false
 #| warning: false
@@ -13,26 +12,6 @@ library(tidyverse)
 library(magick)
 library(fontawesome)
 ```
-
-
-## この資料について
-
-* `r fa(name = "r-project")` と RStudio はインストール済み
-* `r fa(name = "r-project")`における単純計算方法はできる
-
-* [Fira Code プログラミング用等幅フォントを使っています。](https://github.com/tonsky/FiraCode)
-* このフォントにより、演算子は見やすくなります
-
-**たとえば**
-
-* `<-` は `<` と `-` の合字 (リガチャー, ligature) です `(ALT + -)`
-* `|>` は `|` と `>` の合字です `(CTRL + SHIFT + M)`
-* `<=` は `<` と `=` の合字です
-* `!=` は `!` と `=` の合字です
-
-**この資料は `r version$version.string` 環境で作りました。[Quarto](https://quarto.org/) で作成しました。日本語はめちゃくちゃかもしれないので、気になるなら訂正案を送ってください。**
-
-
 
 ## 代入演算子 (assignment operator) とベクトル (vector) とは
 

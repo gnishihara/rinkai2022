@@ -1144,7 +1144,7 @@ sigmaB = 1
 groupA = rnorm(nA, meanA, sigmaA) %>% round(., 1)
 groupB = rnorm(nB, meanB, sigmaB) %>% round(., 1)
 dset = tibble(site = c("A", "B"), size = list(groupA, groupB)) %>% unnest(size)
-fname = "./データ/sargassum_t-test_dataset.csv"
+fname = "./_data/sargassum_t-test_dataset.csv"
 z1 = "# 6 Sargassum macrocarpum individuals from 2 sites were measured."
 z2 = "# site: is the collection site (A, B)."
 z3 = "# size: is the width of the individual in mm."
@@ -1154,13 +1154,13 @@ write_csv(dset, file = fname, append = TRUE, col_names = TRUE)
 ```
 
 ```{bash, echo = FALSE, comment = NA}
-cat "./データ/sargassum_t-test_dataset.csv"
+cat "./_data/sargassum_t-test_dataset.csv"
 ```
 
 では、データを R に読み込みます。
 
 ```{r}
-filename = "./データ/sargassum_t-test_dataset.csv"
+filename = "./_data/sargassum_t-test_dataset.csv"
 dset = read_csv(filename)
 ```
 
@@ -1178,7 +1178,7 @@ dset
 `skip = 3` を `read_csv()` に渡せば、最初の 3 行をスキップできます。
 
 ```{r}
-filename = "./データ/sargassum_t-test_dataset.csv"
+filename = "./_data/sargassum_t-test_dataset.csv"
 dset = read_csv(filename, skip = 3)
 ```
 
@@ -1307,7 +1307,7 @@ P = `r sprintf("%2.4f", z$.value)` ので、
 ```{r, eval=FALSE}
 library(tidyverse)
 library(car)
-filename = "./データ/sargassum_t-test_dataset.csv"
+filename = "./_data/sargassum_t-test_dataset.csv"
 dset = read_csv(filename, skip = 3)
 
 # (1) データの可視化

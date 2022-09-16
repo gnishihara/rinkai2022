@@ -6,7 +6,7 @@ format:
     html-math-method: katex
 reference-location: margin
 citation-location: margin
-bibliography: anova.bib
+bibliography: references.bib
 ---
 
 ```{r}
@@ -189,62 +189,20 @@ ggplot(festuca) +
 
 ## 二元配置分散分析
 
-
-`contrasts` をデフォルトのままにした場合。
-デフォルトは `contr.treatment` です。
+分散分析の結果。
 
 ```{r}
 fullmodel_treatment = lm(Weight ~ pH + Calluna + pH:Calluna, data = festuca)
 anova(fullmodel_treatment)
 ```
 
-`contrasts` を `contr.sum` に変えて、解析します。
-
-```{r}
-contrasts(festuca$pH) = contr.sum
-contrasts(festuca$Calluna) = contr.sum
-fullmodel_sum = lm(Weight ~ pH + Calluna + pH:Calluna, data = festuca)
-anova(fullmodel_sum)
-```
-
-このとき、分散分析の結果は全く同じです。
-ところが、係数表の結果は異なります。
-
+モデル係数の結果。
 
 ```{r}
 summary(fullmodel_treatment)
 ```
 
-`contr.treatment` の場合、`(Intercept)` は pH 3.5 + Calluna が Absent のときの係数です。
-`pHpH5.5` は `(Intercept )` との差を示しています。
-つまり、ph 5.5 + Calluna が Absent の係数は `(Intercept)` より 3.038 高いです。
-`CallunaPresent` も `(Intercept )` との差を示しています。
-このとき、ph 3.5 + Calluna が Absent (`(Intercept)`) に対して、 pH 3.5 Calluna が Present は -0.390 低いです。
-最後に `pHpH5.5:CallunaPresent` があります。
-ここで示された値も `(Intercept)` との差です。
-このとき、このとき、ph 3.5 + Calluna が Absent (`(Intercept)`) に対して、 pH 5.5 Calluna が Present は -2.078 低いです。
-
-In `contr.treatment` we are examining the marginal effect of a variable on the reference condition, which is the intercept.
-
-```{r}
-summary(fullmodel_sum)
-```
-
-`contr.sum` の場合は、示された係数は全く異なります。
-`(Intercept)` は 総平均です。
-`pH1` (pH の水準 1) は総平均 (`(Intercept)`) に対する効果です。
-つまり、`pH1` (pH 3.5) は総平均より -0.9995 下げる効果があります。
-pH 5.5 の場合、総平均より 0.9995 上げる効果があります。
-`Calluna1` (Calluna の水準 1) は総平均 (`(Intercept)`) に対する効果です。
-このとき、Calluna は absent なら、総平均より 0.7145 上げる効果があります。
-Calluna は present の場合、総平均より 0.7145 下げる効果があります。
-`pH1:Calluna1` は相互作用の効果です。
-このときの相互作用の効果の解釈はとても難しいです。
-
-**おすすめ**
-
-`emmeans` のパッケージを上手に使えば、上の問題は解決できます。
-モデル結果の係数を評価するよりも、相互作用の効果を可視化して確認したほうがいい。
+因子ごとの比較は `emmeans` パッケージの `emmeans()` 関数でします。
 `object` 引数に、処理するモデルを渡します。
 `formula` には、A因子 と B因子をモデル式として、渡します。
 
@@ -496,9 +454,6 @@ library(car)
 contrasts(dset$pH) = contr.sum      # Required
 contrasts(dset$Calluna) = contr.sum # Required
 ```
-
-
-
 
 ```{r}
 fullmodel_1 = lm(Weight ~ pH * Calluna, data = dset)
