@@ -7,5 +7,6 @@
 /.git/
 /.Rproj.user/
 /_site/
-*_cache/
-*_files/
+/_data/
+/*_cache/
+/*_files/
