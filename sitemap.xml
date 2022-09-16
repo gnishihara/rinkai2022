@@ -2,42 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/index.html</loc>
-    <lastmod>2022-09-15T23:41:31.333Z</lastmod>
+    <lastmod>2022-09-16T03:54:12.075Z</lastmod>
   </url>
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/part01.html</loc>
-    <lastmod>2022-09-15T23:41:32.049Z</lastmod>
+    <lastmod>2022-09-16T03:54:12.791Z</lastmod>
   </url>
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/part02.html</loc>
-    <lastmod>2022-09-15T23:41:32.605Z</lastmod>
+    <lastmod>2022-09-16T03:54:13.407Z</lastmod>
   </url>
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/part03.html</loc>
-    <lastmod>2022-09-15T23:41:33.289Z</lastmod>
+    <lastmod>2022-09-16T03:54:14.123Z</lastmod>
   </url>
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/part04.html</loc>
-    <lastmod>2022-09-15T23:41:34.437Z</lastmod>
+    <lastmod>2022-09-16T03:54:15.239Z</lastmod>
   </url>
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/part05.html</loc>
-    <lastmod>2022-09-15T23:41:35.281Z</lastmod>
+    <lastmod>2022-09-16T03:54:16.115Z</lastmod>
   </url>
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/summary-statistics.html</loc>
-    <lastmod>2022-09-15T23:41:35.869Z</lastmod>
+    <lastmod>2022-09-16T03:54:16.766Z</lastmod>
   </url>
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/ttest.html</loc>
-    <lastmod>2022-09-15T23:41:37.009Z</lastmod>
+    <lastmod>2022-09-16T03:54:17.882Z</lastmod>
   </url>
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/anova.html</loc>
-    <lastmod>2022-09-15T23:41:37.885Z</lastmod>
+    <lastmod>2022-09-16T03:54:18.862Z</lastmod>
   </url>
   <url>
     <loc>https://gnishihara.github.io/rinkai2022/anova2.html</loc>
-    <lastmod>2022-09-15T23:41:38.709Z</lastmod>
+    <lastmod>2022-09-16T03:54:19.758Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gnishihara.github.io/rinkai2022/glm.html</loc>
+    <lastmod>2022-09-16T03:54:21.182Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gnishihara.github.io/rinkai2022/nonlinear.html</loc>
+    <lastmod>2022-09-16T03:54:22.402Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gnishihara.github.io/rinkai2022/maps.html</loc>
+    <lastmod>2022-09-16T03:54:23.170Z</lastmod>
+  </url>
+  <url>
+    <loc>https://gnishihara.github.io/rinkai2022/windfetch.html</loc>
+    <lastmod>2022-09-16T03:55:53.100Z</lastmod>
   </url>
 </urlset>
