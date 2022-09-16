@@ -27,6 +27,7 @@ library(sf)
 library(magick)
 library(ggrepel)
 library(showtext)
+library(patchwork)
 ```
 
 ## 送風距離関数の定義
@@ -90,20 +91,19 @@ calc_intersection = function(fetch_limit, origin, map_layer) {
 ```{r}
 ################################################################################
 # Prepare data set #############################################################
-# GPS coordinates to determine wind fetcj ######################################
-matsushimagps = matrix(rev(c(38.34549669653925, 141.0807915733725)), ncol = 2)
-hirotagps     = matrix(rev(c(39.02402594131857, 141.78725806724896)), ncol = 2)
-bisegps       = matrix(rev(c(26.704302654710496, 127.85974269102186)), ncol = 2)
-arikawagps    = matrix(rev(c(32.98827976845565, 129.11838896005543)), ncol = 2)
-# arikawagps    = matrix(rev(c(32.99602966223495, 129.11335509246598)), ncol = 2) # For Fetch calcs
-tainouragps   = matrix(rev(c(32.95134175383013, 129.1096027426365)), ncol = 2)
-omuragps      = matrix(rev(c(32+52/60+11.9/60/60, 129+58/60+24.5/60/60)), ncol = 2)
+# GPS coordinates to determine wind fetch ######################################
+matsushimagps = c(38.34549669653925, 141.0807915733725)
+hirotagps     = c(39.02402594131857, 141.78725806724896)
+bisegps       = c(26.704302654710496, 127.85974269102186)
+arikawagps    = c(32.98827976845565, 129.11838896005543)
+tainouragps   = c(32.95134175383013, 129.1096027426365)
+omuragps      = c(32+52/60+11.9/60/60, 129+58/60+24.5/60/60)
 
 gps_info = rbind(matsushimagps, hirotagps, bisegps, arikawagps, tainouragps, omuragps) |> 
-  as_tibble() |> 
-  mutate(name = c("matsushimagps", "hirotagps", "bisegps", "arikawagps", "tainouragps", "omuragps")) |> 
-  mutate(label = str_to_sentence(str_remove(name, pattern = "(gps)"))) |> 
-  rename(long = V1, lat = V2)
+  as_tibble(.name_repair = ~c("lat", "long")) |> 
+  mutate(name = c("matsushimagps", "hirotagps", 
+                  "bisegps", "arikawagps", "tainouragps", "omuragps")) |> 
+  mutate(label = str_to_sentence(str_remove(name, pattern = "(gps)"))) 
 
 gps_info = gps_info |> 
   mutate(label2 = str_to_sentence(label)) |> 

@@ -15,6 +15,7 @@ project:
     - glm.qmd
     - nonlinear.qmd
     - maps.qmd
+    - japan-zenkoku.qmd
     - windfetch.qmd
 
 website:
@@ -48,6 +49,7 @@ website:
       - section: "その他"
         contents:
         - maps.qmd
+        - japan-zenkoku.qmd
         - windfetch.qmd
 
 format:

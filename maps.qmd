@@ -231,9 +231,9 @@ ggplot(kyushu) +
 範囲は Google Map で選びました。
 
 ```{r}
-katagami = rbind(rev(c(32.95809069048365, 129.7669185309373)),
-                 rev(c(32.89802000729197, 129.82832411747583))) |>
-  as_tibble(.name_repair = \(x) c("long", "lat")) |>
+katagami = rbind(c(32.95809069048365, 129.7669185309373),
+                 c(32.89802000729197, 129.82832411747583)) |>
+  as_tibble(.name_repair = ~c("lat", "long")) |> 
   st_as_sf(coords = c("long", "lat"), crs = st_crs(kyushu))
 
 omurabay = rbind(rev(c(33.103196388120104, 129.67183787501082)),
@@ -380,3 +380,5 @@ image_read_pdf(str_c(proot, pdfname), density = 600) |>
 #| echo: false
 image_read(str_c(proot, pngname))
 ```
+
+
