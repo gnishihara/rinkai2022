@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "研究室と講義の R コード",
     "section": "",
-    "text": "── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.3.6      ✔ purrr   0.3.4 \n✔ tibble  3.1.8      ✔ dplyr   1.0.10\n✔ tidyr   1.2.0      ✔ stringr 1.4.0 \n✔ readr   2.1.2      ✔ forcats 0.5.1 \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n研究室 の基礎統計学, 教育関係共同利用拠点の 水産海洋データ解析演習 の講義資料です。\nマニュアルの更新日：2022年09月16日 12:45:28 JST\n【重要】R コードに自身あるが、日本語はチンプンカンプンかも。It is easier to explain this stuff in English.\nコードは考えずにコピペしないでください。 コードに使用したデータは研究室のサーバにあるので、公開されていません。\n研究室の皆さん： 研究室用のデータは RStudio の ~/Lab_Data/ に入っています。\nはここ https://cran.r-project.org/ からダウンロードできます。Windows ユーザは Rtools42 もインストールしましょう。ページ内の Rtools42 installer のリンクを探してね。\nRStudio もインストールしましょう。Rのデフォルトの IDE はとても使いにくいです。\n重要: Windows にインストールするとき、OneDrive にインストールされないように注意してください。 詳細は 奥村先生のサイト を参考にしてください。\nSession Information"
+    "text": "研究室 の基礎統計学, 教育関係共同利用拠点の 水産海洋データ解析演習 の講義資料です。\nマニュアルの更新日：2022年09月16日 13:34:39 JST\n【重要】R コードに自身あるが、日本語はチンプンカンプンかも。It is easier to explain this stuff in English.\nコードは考えずにコピペしないでください。 コードに使用したデータは研究室のサーバにあるので、公開されていません。\n研究室の皆さん： 研究室用のデータは RStudio の ~/Lab_Data/ に入っています。\nはここ https://cran.r-project.org/ からダウンロードできます。Windows ユーザは Rtools42 もインストールしましょう。ページ内の Rtools42 installer のリンクを探してね。\nRStudio もインストールしましょう。Rのデフォルトの IDE はとても使いにくいです。\n重要: Windows にインストールするとき、OneDrive にインストールされないように注意してください。 詳細は 奥村先生のサイト を参考にしてください。\nSession Information"
   },
   {
     "objectID": "index.html#この資料について",
