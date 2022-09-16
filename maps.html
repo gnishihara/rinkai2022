@@ -273,6 +273,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./japan-zenkoku.html" class="sidebar-item-text sidebar-link">全国の地図</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./windfetch.html" class="sidebar-item-text sidebar-link">送風距離の求め方</a>
   </div>
 </li>
@@ -610,10 +615,10 @@ geometries</code></pre>
 <section id="調査地点の図" class="level2">
 <h2 class="anchored" data-anchor-id="調査地点の図">調査地点の図</h2>
 <p>形上湾と大村湾の図を作ります。 形上湾の方には、調査地点と結果ものせます。 まずは形上湾と大村湾の範囲を決めます。 範囲は Google Map で選びました。</p>
-<div class="cell" data-hash="maps_cache/html/unnamed-chunk-25_af6ad7d9b447a13c6f5ac698f5e4e61c">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>katagami <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">rev</span>(<span class="fu">c</span>(<span class="fl">32.95809069048365</span>, <span class="fl">129.7669185309373</span>)),</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">rev</span>(<span class="fu">c</span>(<span class="fl">32.89802000729197</span>, <span class="fl">129.82832411747583</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">.name_repair =</span> \(x) <span class="fu">c</span>(<span class="st">"long"</span>, <span class="st">"lat"</span>)) <span class="sc">|&gt;</span></span>
+<div class="cell" data-hash="maps_cache/html/unnamed-chunk-25_f05a0e7310291ea5b0076892a9eba932">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>katagami <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="fl">32.95809069048365</span>, <span class="fl">129.7669185309373</span>),</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                 <span class="fu">c</span>(<span class="fl">32.89802000729197</span>, <span class="fl">129.82832411747583</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>(<span class="at">.name_repair =</span> <span class="sc">~</span><span class="fu">c</span>(<span class="st">"lat"</span>, <span class="st">"long"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"long"</span>, <span class="st">"lat"</span>), <span class="at">crs =</span> <span class="fu">st_crs</span>(kyushu))</span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>omurabay <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">rev</span>(<span class="fu">c</span>(<span class="fl">33.103196388120104</span>, <span class="fl">129.67183787501082</span>)),</span>
