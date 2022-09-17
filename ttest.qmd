@@ -4,6 +4,8 @@ subtitle: Comparing two groups with the t-test
 format: 
   html:
     html-math-method: katex
+reference-location: margin
+citation-location: margin
 ---
 
 ```{r}

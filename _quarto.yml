@@ -20,6 +20,10 @@ project:
 
 website:
   title: "研究室と講義の R コード"
+  google-analytics: 
+    tracking-id: "G-SQKFVHJ1SD"
+    cookie-consent: true
+    storage: cookies
   site-url: https://gnishihara.github.io/rinkai2022/
   repo-url: https://github.com/gnishihara/rinkai2022/
   sidebar:
@@ -54,11 +58,14 @@ website:
 
 format:
   html:
-    theme: cosmo
+    theme: [cosmo, custom.scss]
     css: styles.css
+    code-copy: true
+    code-overflow: wrap
     toc: true
     html-math-method: katex
 
+bibliography: references.bib
 execute:
   freeze: auto
   

@@ -1,5 +1,5 @@
 ---
-title: "非線形モデル-I"
+title: "非線形モデル"
 format: 
   html:
     html-math-method: katex
@@ -14,13 +14,28 @@ bibliography: references.bib
 ## 必要なパッケージ
 
 ```{r}
+#| echo: false
+library(tidyverse, verbose = FALSE, quietly = TRUE)
+library(googlesheets4, verbose = FALSE, quietly = TRUE)
+library(ggcorrplot, verbose = FALSE, quietly = TRUE)
+library(patchwork, verbose = FALSE, quietly = TRUE)
+library(minpack.lm, verbose = FALSE, quietly = TRUE)
+library(nlstools, verbose = FALSE, quietly = TRUE)
+library(broom, verbose = FALSE, quietly = TRUE)
+```
+
+```{r}
+#| eval: false
+# データ処理用パッケージ
 library(tidyverse)
+library(broom)
 library(googlesheets4)
+# 作図用パッケージ
 library(ggcorrplot)
 library(patchwork)
+#非線形モデル用補助パッケージ
 library(minpack.lm)
 library(nlstools)
-library(broom)
 ```
 
 
@@ -364,6 +379,8 @@ shindan = dataset |>
 
 ```{r}
 #| fig-cap: "モデル残渣と残渣の絶対値の平方根の図で、モデルの当てはめの良さが分かります。（左）はモデル残渣対期待値です。期待値が増加するとモデル残渣の散らばりが大きくなるのがはっきりしています。点線 (0) の周りを均一にばらつくのが理想です。（右）は残渣の絶対値の平方根です。期待値が上がると残渣が増加しています。これらの図を確認すると、残渣のばらつきの均一性に問題があります。"
+#| fig-height: 6
+#| fig-width: 3
 
 p1 = ggplot(shindan) +
   geom_point(aes(x = fitted, y = residuals,
@@ -377,7 +394,7 @@ p2 = ggplot(shindan) +
                  color = seaweed),
              size = 3) +
   scale_color_viridis_d(end = 0.8)
-p1+p2
+p1 + p2 + plot_layout(nrow = 2, guides = "collect")
 ```
 
 ## パラメータの集計
@@ -505,7 +522,7 @@ AIC(poolmodel, fullmodel) |> as_tibble(rownames = "model") |> arrange(AIC)
 3 変数・3 群のモデルの組み方は $(3(3-1)/2)^3=125$ とおりも考えられます。
 125とおりのモデルを調べたくないので、Wald's 検定でパラメータ比較をします。
 
-::: .rmdnote
+:::{.callout-important}
 **【重要】：ここで評価したフルモデルと海藻毎に当てはめたモデルのモデル係数に期待値は同じじゃない！**
 
 ```{r}
