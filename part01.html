@@ -275,7 +275,7 @@ gtag('config', 'G-SQKFVHJ1SD', { 'anonymize_ip': true});
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nonlinear.html" class="sidebar-item-text sidebar-link">非線形モデル-I</a>
+  <a href="./nonlinear.html" class="sidebar-item-text sidebar-link">非線形モデル</a>
   </div>
 </li>
       </ul>
@@ -322,7 +322,6 @@ gtag('config', 'G-SQKFVHJ1SD', { 'anonymize_ip': true});
   <li><a href="#データフレームの構造を確認しよう" id="toc-データフレームの構造を確認しよう" class="nav-link" data-scroll-target="#データフレームの構造を確認しよう">データフレームの構造を確認しよう</a></li>
   <li><a href="#比較演算" id="toc-比較演算" class="nav-link" data-scroll-target="#比較演算">比較演算</a></li>
   <li><a href="#比較演算を使ったデータの抽出" id="toc-比較演算を使ったデータの抽出" class="nav-link" data-scroll-target="#比較演算を使ったデータの抽出">比較演算を使ったデータの抽出</a></li>
-  <li><a href="#重要-数値を比較について" id="toc-重要-数値を比較について" class="nav-link" data-scroll-target="#重要-数値を比較について"><strong>重要!</strong> 数値を比較について</a></li>
   </ul>
 </nav>
     </div>
@@ -540,9 +539,7 @@ gtag('config', 'G-SQKFVHJ1SD', { 'anonymize_ip': true});
 2 20.2 cat FALSE kagoshima</code></pre>
 </div>
 </div>
-</section>
-<section id="重要-数値を比較について" class="level2">
-<h2 class="anchored" data-anchor-id="重要-数値を比較について"><strong>重要!</strong> 数値を比較について</h2>
+<p><strong>重要! 数値の比較について</strong></p>
 <p>パソコンは 2 進数で計算しているので、数値は正確ではない！</p>
 <p><strong>たとえば：</strong></p>
 <div class="cell">
@@ -553,11 +550,13 @@ gtag('config', 'G-SQKFVHJ1SD', { 'anonymize_ip': true});
 </div>
 <p>数値の比較をする場合は <code>all.equal()</code> を使いましょう。</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fl">0.2</span> <span class="sc">*</span> <span class="fl">0.2</span> <span class="sc">/</span> <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="at">tolerance =</span> <span class="dv">0</span>) <span class="co"># 上のコードと同じ</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 上のコードと同じ</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fl">0.2</span> <span class="sc">*</span> <span class="fl">0.2</span> <span class="sc">/</span> <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="at">tolerance =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Mean relative difference: 1.387779e-16"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fl">0.2</span> <span class="sc">*</span> <span class="fl">0.2</span> <span class="sc">/</span> <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="at">tolerance =</span> .Machine<span class="sc">$</span>double.eps) <span class="co"># 機械誤差を考慮した比較</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 機械誤差を考慮した比較</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal</span>(<span class="fl">0.2</span> <span class="sc">*</span> <span class="fl">0.2</span> <span class="sc">/</span> <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="at">tolerance =</span> .Machine<span class="sc">$</span>double.eps)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
